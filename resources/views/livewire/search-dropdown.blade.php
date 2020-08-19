@@ -1,4 +1,4 @@
-<div class="relative mt-3 md:mt-0">
+<div class="relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away="isOpen = false">
     <input wire:model.debounce.500ms="search" type="text"
         class="bg-gray-800 text-sm rounded-full w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline"
         placeholder="Vyhľadávanie">
@@ -10,7 +10,7 @@
     </div>
     <div wire:loading class="spinner top-0 right-0 mr-4 mt-3"></div>
     @if (strlen($search) >= 2)
-    <div class="absolute bg-gray-800 text-sm rounded w-64 mt-4">
+    <div class="absolute bg-gray-800 text-sm rounded w-64 mt-4" x-show="isOpen">
         @if ($searchResults->count() > 0)
         <ul>
             @foreach ($searchResults as $result)
