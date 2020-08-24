@@ -25,18 +25,19 @@
 
         </div>
     </div> <!-- end ppular-actors -->
-    {{--<div class="flex justify-between mt-16">
-        @if ($previovs)
-         <a href="/actors/page/{{ $previovs }}">predchádzajúca</a>
-         @else
-         <div></div>
-        @endif
-        @if ($next)
-        <a href="/actors/page/{{ $next }}">nasledujúca</a>
-        @else
-         <div></div>
-        @endif
-    </div>26.26--}}
+
+        {{--<div class="flex justify-between mt-16">
+            @if ($previovs)
+            <a href="/actors/page/{{ $previovs }}">predchádzajúca</a>
+            @else
+            <div></div>
+            @endif
+            @if ($next)
+            <a href="/actors/page/{{ $next }}">nasledujúca</a>
+            @else
+            <div></div>
+            @endif
+        </div>26.26--}}
 
 </div>
 @endsection
