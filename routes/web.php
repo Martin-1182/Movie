@@ -13,3 +13,6 @@ Route::get('/actors/page/{page?}', 'ActorsController@index');
 
 Route::get('/actors/{actor}', 'ActorsController@show')->name('actors.show');
 
+Route::get('/tv', 'TvController@index')->name('tv.index');
+
+Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
