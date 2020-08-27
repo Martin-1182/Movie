@@ -45,20 +45,20 @@
                 <h2 class="text-4xl mt-4 md:mt-0 font-semibold">{{ $actor['name'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
                     <svg class="fill-current text-gray-400 hover:text-white w-4" viewBox="0 0 448 512"><path d="M448 384c-28.02 0-31.26-32-74.5-32-43.43 0-46.825 32-74.75 32-27.695 0-31.454-32-74.75-32-42.842 0-47.218 32-74.5 32-28.148 0-31.202-32-74.75-32-43.547 0-46.653 32-74.75 32v-80c0-26.5 21.5-48 48-48h16V112h64v144h64V112h64v144h64V112h64v144h16c26.5 0 48 21.5 48 48v80zm0 128H0v-96c43.356 0 46.767-32 74.75-32 27.951 0 31.253 32 74.75 32 42.843 0 47.217-32 74.5-32 28.148 0 31.201 32 74.75 32 43.357 0 46.767-32 74.75-32 27.488 0 31.252 32 74.5 32v96zM96 96c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40zm128 0c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40zm128 0c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40z"/></svg>
-                    <span class="ml-2">{{ $actor['birthday'] }} ({{ $actor['age'] }} rokov) s {{ $actor['place_of_birth'] }}</span>
+                    <span class="ml-2">{{ $actor['birthday'] }} ({{ $actor['age'] }} rokov)  {{ $actor['place_of_birth'] }}</span>
                 </div>
 
                 <p class="text-gray-300 mt-8">
                     {{ $actor['biography'] }}
                 </p>
 
-                <h4 class="font-semibold mt-12">Known For</h4>
+                <h4 class="uppercase tracking-wider text-orange-500 text-lg font-semibold mt-12">Filmy</h4>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     @foreach ($knownForMovies as $movie)
                         <div class="mt-4">
                             <a href="{{ $movie['linkToPage'] }}"><img src="{{ $movie['poster_path'] }}" alt="poster" class="hover:opacity-75 transition ease-in-out duration-150"></a>
-                            <a href="{{ $movie['linkToPage'] }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $movie['title'] }}</a>
+                            <a href="{{ $movie['linkToPage'] }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1 truncate">{{ $movie['title'] }}</a>
                         </div>
 
                     @endforeach
@@ -70,10 +70,86 @@
 
     <div class="credits border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
-            <h2 class="text-4xl font-semibold">Credits</h2>
+            <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold">Herecká filmografia</h2>
             <ul class="list-disc leading-loose pl-5 mt-8">
                 @foreach ($credits as $credit)
-                    <li>
+                    <li class="flex list-none">
+                        <div class="icon mr-4">
+                            <svg width="22" height="22" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 484">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: #ed8936;
+                                    }
+
+                                    .cls-2 {
+                                        fill: #98a1b3;
+                                    }
+
+                                    .cls-3 {
+                                        fill: #fff;
+                                    }
+
+                                    .cls-4 {
+                                        fill: #f5737f;
+                                    }
+
+                                    .cls-5 {
+                                        fill: #d3d7df;
+                                    }
+
+                                    .cls-6 {
+                                        fill: #e1e3e9;
+                                    }
+                                </style>
+                            </defs>
+                            <title>video</title>
+                            <path class="cls-1"
+                                d="M418,289.44l60-35.3a16,16,0,0,1,24,13.75V460.11a16,16,0,0,1-24,13.75l-60-35.3Z"
+                                transform="translate(0 -14)" />
+                            <path class="cls-2" d="M418,432H378V296h40Z" transform="translate(0 -14)" />
+                            <path class="cls-3"
+                                d="M34,240H354a24,24,0,0,1,24,24V464a24,24,0,0,1-24,24H34a24,24,0,0,1-24-24V264A24,24,0,0,1,34,240Z"
+                                transform="translate(0 -14)" />
+                            <circle class="cls-4" cx="306" cy="298" r="24" />
+                            <circle class="cls-1" cx="90" cy="146" r="80" />
+                            <circle class="cls-1" cx="275.94" cy="118" r="108" />
+                            <circle class="cls-5" cx="275.94" cy="118" r="68" />
+                            <circle class="cls-5" cx="90" cy="146" r="36" />
+                            <path class="cls-6" d="M64,344H238v96H64Z" transform="translate(0 -14)" />
+                            <path class="cls-1" d="M282,384h48v48H282Z" transform="translate(0 -14)" />
+                            <path
+                                d="M498.93,245.36a25.67,25.67,0,0,0-26,.17l-60,35.29a9.92,9.92,0,0,0-4.3,5.18H388V264a34,34,0,0,0-34-34H341.6A118,118,0,1,0,161.09,104.88,90,90,0,1,0,33.52,230,34,34,0,0,0,0,264V464a34,34,0,0,0,34,34H149a10,10,0,0,0,0-20H34a14,14,0,0,1-14-14V264a14,14,0,0,1,14-14H354a14,14,0,0,1,14,14V464a14,14,0,0,1-14,14H239a10,10,0,0,0,0,20H354a34,34,0,0,0,34-34V442h20.63a9.92,9.92,0,0,0,4.3,5.18l60,35.29A25.94,25.94,0,0,0,512,460.11V267.89a25.68,25.68,0,0,0-13.07-22.53ZM275.94,34a98,98,0,1,1-98,98A98.11,98.11,0,0,1,275.94,34ZM20,160a70,70,0,1,1,70,70A70.08,70.08,0,0,1,20,160Zm126.5,70a90.38,90.38,0,0,0,27.72-38.27A118.79,118.79,0,0,0,210.29,230ZM388,306h20V422H388ZM492,460.11a5.95,5.95,0,0,1-9,5.13l-55-32.39V295.16l55-32.4a5.95,5.95,0,0,1,9,5.13Z"
+                                transform="translate(0 -14)" />
+                            <path
+                                d="M306,346a34,34,0,1,0-34-34A34,34,0,0,0,306,346Zm0-48a14,14,0,1,1-14,14A14,14,0,0,1,306,298Z"
+                                transform="translate(0 -14)" />
+                            <path d="M194,478a10,10,0,1,0,7.07,2.93A10.08,10.08,0,0,0,194,478Z"
+                                transform="translate(0 -14)" />
+                            <path
+                                d="M275.94,210a78,78,0,1,0-78-78A78.09,78.09,0,0,0,275.94,210Zm0-136a58,58,0,1,1-58,58A58.07,58.07,0,0,1,275.94,74Z"
+                                transform="translate(0 -14)" />
+                            <path d="M275.94,114.67a10,10,0,1,0-7.07-2.93A10.08,10.08,0,0,0,275.94,114.67Z"
+                                transform="translate(0 -14)" />
+                            <path d="M275.94,169.33a10,10,0,1,0-7.07-2.93A10,10,0,0,0,275.94,169.33Z"
+                                transform="translate(0 -14)" />
+                            <path d="M303.28,142a10,10,0,1,0-7.07-2.93A10.09,10.09,0,0,0,303.28,142Z"
+                                transform="translate(0 -14)" />
+                            <path d="M248.61,142a10,10,0,1,0-7.07-2.93,10.08,10.08,0,0,0,7.07,2.93Z"
+                                transform="translate(0 -14)" />
+                            <path
+                                d="M90,206a46,46,0,1,0-46-46A46.06,46.06,0,0,0,90,206Zm0-72a26,26,0,1,1-26,26A26,26,0,0,1,90,134Z"
+                                transform="translate(0 -14)" />
+                            <path
+                                d="M248,440V344a10,10,0,0,0-10-10H64a10,10,0,0,0-10,10v96a10,10,0,0,0,10,10H238A10,10,0,0,0,248,440Zm-20-10H74V354H228Z"
+                                transform="translate(0 -14)" />
+                            <path
+                                d="M272,432a10,10,0,0,0,10,10h48a10,10,0,0,0,10-10V384a10,10,0,0,0-10-10H282a10,10,0,0,0-10,10Zm20-38h28v28H292Z"
+                                transform="translate(0 -14)" />
+                        </svg>
+
+                        </div>
                         {{ $credit['release_year'] }} &middot;
                         <strong><a href="{{ $credit['linkToPage'] }}" class="hover:underline">{{ $credit['title'] }}</a></strong>
                          as {{ $credit['character'] }}

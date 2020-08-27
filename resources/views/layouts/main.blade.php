@@ -96,7 +96,7 @@
                     <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Filmy</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">TV relácie</a>
+                <a href="{{ route('tv.index') }}" class="hover:text-gray-300">TV relácie</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="{{ route('actors.index') }}" class="hover:text-gray-300">Herci</a>

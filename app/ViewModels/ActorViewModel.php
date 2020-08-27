@@ -4,6 +4,7 @@ namespace App\ViewModels;
 
 use Illuminate\Support\Carbon;
 use Spatie\ViewModels\ViewModel;
+use Illuminate\Support\Facades\App;
 
 class ActorViewModel extends ViewModel
 {
@@ -18,18 +19,20 @@ class ActorViewModel extends ViewModel
         $this->credits = $credits;
     }
 
-    public function actor ()
+    public function actor()
     {
         return collect($this->actor)->merge([
-            'birthday' => Carbon::parse($this->actor['birthday'])->format('d M, Y'),
+            'birthday' => Carbon::parse($this->actor['birthday'])->format('d. m. Y'),
             'age' => Carbon::parse($this->actor['birthday'])->age,
             'profile_path' => $this->actor['profile_path']
-              ? 'https://image.tmdb.org/t/p/w300/' .$this->actor['profile_path']
-              : 'https://via.placeholder.com/300x450',
-        ])->dump();
+                ? 'https://image.tmdb.org/t/p/w300/'.$this->actor['profile_path']
+                : 'https://via.placeholder.com/300x450',
+        ])->only([
+            'birthday', 'age', 'profile_path', 'name', 'id', 'homepage', 'place_of_birth', 'biography'
+        ]);
     }
 
-    public function social ()
+    public function social()
     {
         return collect($this->social)->merge([
             'twitter' => $this->social['twitter_id'] ? 'https://twitter.com/'.$this->social['twitter_id'] : null,
@@ -44,7 +47,7 @@ class ActorViewModel extends ViewModel
     {
         $castMovies = collect($this->credits)->get('cast');
 
-        return collect($castMovies)->sortByDesc('popularity')->take(5)->map(function ($movie) {
+        return collect($castMovies)->sortByDesc('popularity')->take(5)->map(function($movie) {
             if (isset($movie['title'])) {
                 $title = $movie['title'];
             } elseif (isset($movie['name'])) {
@@ -55,8 +58,8 @@ class ActorViewModel extends ViewModel
 
             return collect($movie)->merge([
                 'poster_path' => $movie['poster_path']
-                ? 'https://image.tmdb.org/t/p/w185' . $movie['poster_path']
-                : 'https://via.placeholder.com/185x278',
+                    ? 'https://image.tmdb.org/t/p/w185'.$movie['poster_path']
+                    : 'https://via.placeholder.com/185x278',
                 'title' => $title,
                 'linkToPage' => $movie['media_type'] === 'movie' ? route('movies.show', $movie['id']) : route('tv.show', $movie['id'])
             ])->only([
@@ -70,7 +73,7 @@ class ActorViewModel extends ViewModel
     {
         $castMovies = collect($this->credits)->get('cast');
 
-        return collect($castMovies)->map(function ($movie) {
+        return collect($castMovies)->map(function($movie) {
             if (isset($movie['release_date'])) {
                 $releaseDate = $movie['release_date'];
             } elseif (isset($movie['first_air_date'])) {
