@@ -78,7 +78,7 @@
         <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold">Herecká filmografia</h2>
         <ul class="list-disc leading-loose pl-5 mt-8">
             @foreach ($credits as $credit)
-            <li class="flex list-none content-center align-middle">
+            <li class="list-none content-center align-middle">
                 <div class="icon mr-4">
                     <img class="img-fluid" src="{{ asset('img/video.svg') }}" width="22" alt="Movie_logo">
                 </div>

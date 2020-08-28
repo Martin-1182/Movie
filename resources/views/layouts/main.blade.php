@@ -20,7 +20,8 @@
      <meta property="og:description" content="Ak potrebujete e-shop webovú stránku, alebo blog či aplikáciu na mieru, tak neváhajte a ozvyte sa! Upresníme detaili a začneme na tom pracovať">
      <meta property="og:title" content="WebSystem | Movie | Filmová aplikácia">
      <meta property="og:url" content="https://movie.websystem.sk">
-     <meta property="og:image" content="{{ asset('og/facebook_og_img.png') }}">
+     <meta property="og:image" content="{{ asset('og/cover_img.png') }}">
+
      <!-- end SEO -->
 
      <!-- end Favicons -->
@@ -57,14 +58,14 @@
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
                     <a href="{{ url('https://websystem.sk') }}">
-                        <img class="img-fluid" src="{{ asset('img/video.svg') }}" width="32" alt="Movie_logo">
+						<img class="img-fluid" src="{{ asset('img/video.svg') }}" width="32" alt="Movie_logo">
                     </a>
                 </li>
                 <li class="md:ml-16 mt-3 md:mt-0">
                     <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Filmy</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                <a href="{{ route('tv.index') }}" class="hover:text-gray-300">TV relácie</a>
+                <a href="{{ route('tv.index') }}" class="hover:text-gray-300">Seriály</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="{{ route('actors.index') }}" class="hover:text-gray-300">Herci</a>
@@ -72,15 +73,22 @@
             </ul>
             <div class="flex flex-col md:flex-row items-center">
                 <livewire:search-dropdown />
-                <div class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{ url('/') }}">
-                        <img src="/img/WS-logo.png" alt="avatar" class="h-8">
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
     @yield('content')
+    <footer class="border border-top border-gray-800">
+
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6">
+         <div class="">
+             Copyright {{ now()->year }} &nbsp;
+                <a href="{{ url('https://websystem.sk') }}">
+                     WebSystem s.r.o.
+                </a>
+            </div>
+           <img src="{{ asset('img/logo.svg') }}" alt="Movie_logo">
+        </div>
+    </footer>
     <livewire:scripts />
     @yield('scripts')
 </body>
